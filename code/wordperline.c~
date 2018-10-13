@@ -1,0 +1,16 @@
+#include<stdio.h>
+
+int main(){
+  int st = 0,i;
+  char c;
+  while ((c = getchar()) != EOF){
+    if(c == ' ' || c == '\n' || c == '\t'){
+      if(st == 1)
+	printf("\n");
+      st=1;
+    }
+    else
+      printf("%d",c);
+  }
+}
+	 

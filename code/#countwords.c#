@@ -1,0 +1,7 @@
+//Word counting program
+#include<stdio.h>
+
+    printf("%ld \n",w);
+  }
+}
+      
