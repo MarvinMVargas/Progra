@@ -1,0 +1,64 @@
+#include<stdio.h>
+#define MAXLEN 1000
+int j=1;
+
+int getLine(char s[],int len);
+void copy(char from[],char to[]);
+
+int main(){
+  char line[MAXLEN],longest[MAXLEN];
+  int len,max;
+
+  len = 0;
+  while((len = getLine(line,MAXLEN)) > 0){
+    if(len > max){
+      max = len;
+      copy(line,longest);
+    }
+  }
+  for(int i = 0; i <= max; i++){
+    printf("%c",longest[i]);
+  }
+  printf("\n");
+  printf("Lenght: %d",max);
+  return 0;
+}
+
+int getLine(char line[],int max){
+  int i=0;
+  char c;
+  printf("Line: %d \n", j);
+  j++;
+  for(i = 0;(c = getchar()) !=  EOF && c != '\n'; i++){
+    if( i < max-1){
+      line[i] = c;
+      printf(" %d ",i);
+    }
+  }
+  printf("\n");
+  if(c == '\n'){
+    if(i <= max-2){
+      line[i] = c;
+      i++;
+    }
+    else{
+      line[max-2] = c;
+    }
+  }
+  
+  if(i <=  max-1){
+    line[i] = '\0';
+  }
+  else{
+    line[max-1] = '\0';
+  }
+  return i;
+}
+    
+void copy(char from[],char  to[]){
+  int i=0;
+  while(from[i] != '\0'){
+    to[i] = from[i];
+    i++;
+  }
+}
